@@ -17,6 +17,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         http.authorizeRequests()
                 .anyRequest().authenticated()
         http.cors()
+        http.csrf().disable()
         http.httpBasic()
     }
 
