@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.provisioning.JdbcUserDetailsManager
+import org.springframework.security.web.savedrequest.NullRequestCache
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource
@@ -19,6 +20,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         http.cors()
         http.csrf().disable()
         http.httpBasic()
+        http.requestCache().requestCache(NullRequestCache())
     }
 
     @Bean
